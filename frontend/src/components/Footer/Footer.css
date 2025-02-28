@@ -1,0 +1,13 @@
+.footer__wrapper {
+  padding-bottom: 0.6rem;
+}
+
+.footer__row {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.footer__version-display {
+  font-size: 0.8rem;
+}

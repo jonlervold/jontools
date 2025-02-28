@@ -1,0 +1,21 @@
+.transformation-grid__grid {
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 0.6rem;
+}
+
+.transformation-grid__grid-item {
+  border: 0.06rem solid var(--color-transformation-grid-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+@media (max-width: 570px) {
+  .transformation-grid__grid-item {
+    font-size: 0.7rem;
+    padding: 0;
+  }
+}

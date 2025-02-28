@@ -1,0 +1,21 @@
+.non-mode-notes-grid__grid {
+  display: grid;
+  grid-template-columns: auto repeat(5, 1fr);
+  grid-template-rows: repeat(3, auto);
+  gap: 0.6rem;
+}
+
+.non-mode-notes-grid__grid-item {
+  border: 0.06rem solid var(--color-non-mode-notes-grid-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+}
+
+@media (max-width: 570px) {
+  .non-mode-notes-grid__grid-item {
+    font-size: 0.7rem;
+    padding: 0;
+  }
+}

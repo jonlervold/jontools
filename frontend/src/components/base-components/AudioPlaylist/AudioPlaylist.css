@@ -1,0 +1,30 @@
+.audio-playlist__container {
+  border: 0.06rem solid var(--color-audio-playlist-border);
+  border-radius: 0.625rem;
+  padding: 1.9rem;
+  background-color: var(--color-audio-playlist-background);
+}
+
+.audio-playlist__currently-playing {
+  font-weight: bold;
+}
+
+.audio-playlist__tracks-grid {
+  display: grid;
+  grid-template-columns: 1.9rem 1fr;
+  grid-template-rows: auto;
+}
+
+.audio-playlist__track-grouping-heading {
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+.audio-playlist__track-grouping-heading-first {
+  margin-top: 0;
+}
+
+.audio-playlist__tracks-grid-now-playing-indicator {
+  text-shadow: none;
+  transform: translateY(0.2rem);
+}

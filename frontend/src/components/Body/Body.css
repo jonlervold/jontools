@@ -1,0 +1,21 @@
+.body__outer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.body__inner-container {
+  padding: 4%;
+  width: 44rem;
+  border: 0.06rem solid var(--color-body-border);
+  margin: 1.6rem;
+  border-radius: 0.6rem;
+  background-color: var(--color-body-background);
+}
+
+@media (max-width: 730px) {
+  .body__inner-container {
+    width: 100%;
+  }
+}

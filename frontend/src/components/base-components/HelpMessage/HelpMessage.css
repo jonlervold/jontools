@@ -1,0 +1,24 @@
+.help-message__container {
+  position: relative;
+  border: 0.06rem solid var(--color-help-message-border);
+  padding: 1.25rem 3% 2.5rem 3%;
+  border-radius: 0.63rem;
+  box-shadow: var(--shadow-effect);
+  background-color: var(--color-help-message-background);
+  margin: 0.6rem;
+}
+
+.help-message__info-icon-container {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  text-shadow: none;
+}
+
+.help-message__bold-text {
+  font-weight: bold;
+}
+
+.help-message__ordered-list {
+  margin: 0;
+}

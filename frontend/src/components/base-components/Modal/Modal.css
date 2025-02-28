@@ -1,0 +1,37 @@
+.modal__container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--color-modal-background-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal__card {
+  padding: 1.25rem;
+  background-color: var(--color-modal-background);
+  max-height: 80%;
+  max-width: 80%;
+  overflow: auto;
+  border-radius: 0.6rem;
+  border: 0.06rem solid var(--color-modal-border);
+  box-shadow: var(--shadow-effect);
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.modal__main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__close-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}

@@ -1,0 +1,65 @@
+services:
+  python-backend:
+    build:
+      # Build from the python-backend directory
+      context: ./python-backend
+      # Use the Dockerfile-python-backend file to build the image
+      dockerfile: Dockerfile-python-backend
+    expose:
+      # Allow port 8000 to be accessed from within the Docker network ONLY
+      - 8000
+    # If the container stops, automatically restart it
+    restart: unless-stopped
+    environment:
+      # Specify the module to use as the entry point
+      FLASK_APP: main
+    # -w - Amount of worker processes
+    # -b - Allows access from outside the container on port 8000
+    # "main:app" - Use the "main" module and "app" object within it ("app" being the Flask object in main.py)
+    command: gunicorn -w 4 -b 0.0.0.0:8000 main:app
+
+  frontend:
+    build:
+      # Build from the frontend directory
+      context: ./frontend
+      # Use the Dockerfile-frontend-prod file to build the image
+      dockerfile: Dockerfile-frontend-prod
+    ports:
+      # Maps port 80 of the container to port 80 on the host, allowing access to the frontend via HTTP
+      - "80:80"
+      # Maps port 443 of the container to port 443 on the host, allowing access to the frontend via HTTPS
+      - "443:443"
+    # If the container stops, automatically restart it
+    restart: unless-stopped
+    # See volumes section below
+    volumes:
+      - cert-data:/etc/letsencrypt
+      - cert-logs:/var/log/letsencrypt
+      - ./frontend/.well-known:/usr/share/nginx/html/.well-known
+
+  # Periodically renews SSL certificates
+  certbot:
+    # Use the certbot/certbot image
+    image: certbot/certbot
+    # If the container stops, automatically restart it
+    restart: unless-stopped
+    # See volumes section below
+    volumes:
+      - cert-data:/etc/letsencrypt
+      - cert-logs:/var/log/letsencrypt
+      - ./frontend/.well-known:/usr/share/nginx/html/.well-known
+    # Check every 12 hours if certificates need to be renewed, gracefully restart the frontend container
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew && docker kill -s HUP frontend; sleep 12h & wait $${!}; done;'"
+    # Ensure that frontend is able to be manipulated before starting certbot
+    depends_on:
+      - frontend
+
+# Shared volume configuration for SSL certificate management
+# Allows Certbot to renew certificates and Nginx to use the new certificates:
+# - cert-data: Stores SSL certificates persistently, shared between Nginx (frontend) and Certbot
+# - cert-logs: Maintains Certbot operation logs persistently
+# - frontend/.well-known: Certbot places files in the .well-known directory that the Acme challenge
+#                         accesses to verify the domain before generating certificates
+volumes:
+  cert-data:
+  cert-logs:

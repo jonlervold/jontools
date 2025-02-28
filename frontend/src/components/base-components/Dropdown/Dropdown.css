@@ -1,0 +1,43 @@
+.dropdown__wrapper {
+  position: relative;
+}
+
+.dropdown__wrapper .dropdown__dropdown {
+  position: relative;
+  display: inline-block;
+  /* don't stretch width to 100% in flex containers */
+  align-self: flex-start;
+}
+
+/* Create a pseudo-element to show an arrow on the right side to indicate this is a dropdown
+   necessary because of appearance: none on the select element. */
+.dropdown__dropdown::after {
+  content: "▼";
+  color: #444645;
+  position: absolute;
+  top: 0.1rem;
+  right: 0.6rem;
+  /* ensures clicking the icon still opens the dropdown */
+  pointer-events: none;
+  text-shadow: none;
+}
+
+/* Style the HTML dropdown element itself*/
+.dropdown__dropdown select {
+  appearance: none;
+  background-color: var(--color-dropdown-background);
+  cursor: pointer;
+  border-radius: 0.3rem;
+  color: var(--color-dropdown-text);
+  padding: 0.3rem 1.7rem 0.3rem 0.6rem;
+  box-shadow: var(--shadow-effect);
+  border: 0.12rem solid var(--color-dropdown-border);
+}
+
+.dropdown__dropdown:hover {
+  transform: var(--interact-indicator-hover);
+}
+
+.dropdown__dropdown:active {
+  transform: var(--interact-indicator-active);
+}

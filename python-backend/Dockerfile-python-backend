@@ -1,0 +1,23 @@
+# Use this python
+FROM python:3.12.8-slim
+
+# Set working directory in container
+WORKDIR /app
+
+# Copy contents from local workdir to container workdir
+COPY . .
+
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Create a non-root user and group
+RUN addgroup --system python-backend-app-group && adduser --system --ingroup python-backend-app-group python-backend-app-user
+
+# Change ownership of the working directory to the non-root user
+RUN chown -R python-backend-app-user:python-backend-app-group /app
+
+# Switch to the non-root user
+USER python-backend-app-user
+
+# Open port 8000 to allow access to the backend on the Docker network
+EXPOSE 8000

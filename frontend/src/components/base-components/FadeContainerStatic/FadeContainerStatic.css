@@ -1,0 +1,7 @@
+.fade-container-static__fade-in {
+  animation: fade-in 2s;
+}
+
+.fade-container-static__fade-out {
+  animation: fade-out 1s;
+}

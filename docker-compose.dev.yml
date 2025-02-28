@@ -1,0 +1,54 @@
+services:
+  python-backend:
+    build:
+      # Build from the python-backend directory
+      context: ./python-backend
+      # Use the Dockerfile-python-backend file to build the image
+      dockerfile: Dockerfile-python-backend
+    ports:
+      # Map port 8000 on the host to port 8000 on the container
+      # Allows accessing the backend via localhost:8000 for API development
+      - 8000:8000
+    # If the container stops, automatically restart it
+    restart: unless-stopped
+    volumes:
+      # Share code from the python-backend directory for hot reloading while developing
+      - ./python-backend:/app
+    environment:
+      # Enable hot reloading
+      FLASK_ENV: development
+      # Specify the module to use as the entry point
+      FLASK_APP: main
+    # Run the flask server
+    # --host=0.0.0.0 allows access from outside the container
+    # --port=8000 specifies the server should listen on port 8000
+    # --reload causes the server to restart when code changes are detected
+    command: flask run --host=0.0.0.0 --port=8000 --reload
+
+  frontend:
+    build:
+      # Build from the frontend directory
+      context: ./frontend
+      # Use the Dockerfile-frontend-dev file to build the image
+      dockerfile: Dockerfile-frontend-dev
+    ports:
+      # Map port 5173 on the host to port 5173 on the container
+      # Allows accessing the frontend via localhost:5173 for development
+      - 5173:5173
+    # If the container stops, automatically restart it
+    restart: unless-stopped
+    volumes:
+      # Share code from the frontend directory for hot reloading while developing
+      - ./frontend:/app
+      # Ensures that the container's node_modules is not overwritten by repo's node_modules
+      # Tells Docker not to sync this directory with the host
+      # Necessary due to sharing code between the host and the container for hot reloading
+      # Container's node_modules needs be installed based on the OS of the container, not the system OS
+      - /app/node_modules
+    environment:
+      # Enable hot reloading
+      CHOKIDAR_USEPOLLING: true
+    # Run the vite server
+    # The -- separator tells npm to pass all following arguments directly to the underlying dev script (Vite)
+    # --host 0.0.0.0 allows access from outside the container
+    command: npm run dev -- --host 0.0.0.0

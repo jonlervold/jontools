@@ -1,0 +1,35 @@
+
+# Use this Nginx
+FROM nginx:alpine
+
+# Set working directory in container
+WORKDIR /app
+
+# Copy pre-built frontend (built locally with deploy.sh)
+COPY ./dist/ /usr/share/nginx/html
+
+# Create a non-root user and group
+RUN addgroup -S frontend-app-group && adduser -S frontend-app-user -G frontend-app-group
+
+# Change ownership of the Nginx directories to the new user
+RUN chown -R frontend-app-user:frontend-app-group /usr/share/nginx/html /var/cache/nginx /var/run /home/frontend-app-user
+
+# Create directory for PID file (used to store the Process ID of the Nginx process)
+# By default, Nginx writes this file in the root directory, but we're using a non-root user
+# So a location for the file is created where the user has write permissions
+# The PID location is then specified in the nginx.conf file
+RUN mkdir -p /home/frontend-app-user/nginx && \
+    chown -R frontend-app-user:frontend-app-group /home/frontend-app-user/nginx
+
+# Copy Nginx configuration files
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx-default.conf /etc/nginx/conf.d/default.conf
+
+# Expose ports 80 and 443 for the web server
+EXPOSE 80 443
+
+# Switch to the non-root user
+USER frontend-app-user
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

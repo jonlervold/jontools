@@ -1,0 +1,17 @@
+# Use this node
+FROM node:23.6.1-slim
+
+# Set working directory in container
+WORKDIR /app
+
+# Copy dependencies
+COPY package.json package-lock.json ./
+
+# Force clean npm install (prevents using cached node_modules)
+RUN rm -rf node_modules && npm install
+
+# Copy contents from local workdir to container workdir (except node_modules via dockerignore)
+COPY . .
+
+# Open port 5173 to allow access for development
+EXPOSE 5173

@@ -1,0 +1,5 @@
+.header__center {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
