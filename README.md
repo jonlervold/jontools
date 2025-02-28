@@ -2,7 +2,9 @@
 
 ## Overview
 
-**jontools** is a collection of various coding projects I've built that serve practical, experimental, or fun purposes. Each tool found here came about either from facing a problem where no existing solution quite fit my needs or simply because I thought it would be interesting to create.
+**jontools** is a collection of various coding projects I've built that serve practical, experimental, or fun purposes.
+Each tool found here came about either from facing a problem where no existing solution quite fit my needs or simply
+because I thought it would be interesting to create.
 
 ## Live
 
@@ -49,7 +51,9 @@
 
 ## Architecture
 
-The frontend is built with React and TypeScript to create a seamless and interactive user experience. The backend, powered by Flask (Python), handles file processing. Docker is utilized to containerize the frontend, backend, and SSL certificate renewal (Certbot) services, facilitating easy deployment and scalability. Content is served through Nginx.
+The frontend is built with React and TypeScript to create a seamless and interactive user experience. The backend,
+powered by Flask (Python), handles file processing. Docker is utilized to containerize the frontend, backend, and SSL
+certificate renewal (Certbot) services, facilitating easy deployment and scalability. Content is served through Nginx.
 
 ## Contact
 
@@ -59,9 +63,8 @@ Visit my homepage at [https://jonlervold.com](https://jonlervold.com).
 
 ## Bug Reports
 
-If you encounter anything not working as expected, please [open an issue on the project's GitHub](https://github.com/).
-
-(JT-2 - Change to correct link)
+If you encounter anything not working as expected, please
+[open an issue on the project's GitHub](https://github.com/jonlervold/jontools).
 
 ## License
 

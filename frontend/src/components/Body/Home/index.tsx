@@ -59,8 +59,7 @@ const Home: FC = () => {
       </div>
 
       <div>
-        {/* JT-2 - Change to correct link */}
-        <a href="https://github.com" target="_blank">
+        <a href="https://github.com/jonlervold/jontools" target="_blank">
           jontools GitHub
         </a>
         <div>The GitHub repository for this project.</div>
