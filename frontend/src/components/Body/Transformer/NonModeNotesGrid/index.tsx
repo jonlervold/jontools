@@ -67,7 +67,7 @@ const NonModeNotesGrid: FC<Props> = ({
 
       <div className="non-mode-notes-grid__grid">
         <div className="non-mode-notes-grid__grid-item">
-          Notes Not of {inputRoot} {inputMode}
+          Notes Outside {inputRoot} {inputMode}
         </div>
 
         {Object.keys(nonModeNotesTransformationMap).map((note, index) => (

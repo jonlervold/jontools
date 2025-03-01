@@ -13,7 +13,7 @@ because I thought it would be interesting to create.
 ## Current Features
 
 - **MIDI Inverter**
-  - **Description:** Invert the pitches of  MIDI files while maintaining the original register and harmony.
+  - **Description:** Invert the pitches of MIDI files while maintaining the original register.
   - **Key Capabilities:**
     - Transforms each MIDI note to its mirror image.
     - Preserves the overall musical structure, including key changes and modal interchange, except inverted.

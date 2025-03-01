@@ -14,8 +14,8 @@
   background-color: var(--color-body-background);
 }
 
-@media (max-width: 730px) {
+@media (max-width: 720px) {
   .body__inner-container {
-    width: 100%;
+    width: calc(100vw - 3rem);
   }
 }
