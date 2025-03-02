@@ -17,6 +17,7 @@ const Header: FC = () => {
         <DynamicLink route="/" text="about" />
         <DynamicLink route="/midi-inverter" text="midi inverter" />
         <DynamicLink route="/midi-transformer" text="midi transformer" />
+        <DynamicLink route="/lrms-player" text="lrms player" />
       </div>
     </div>
   );

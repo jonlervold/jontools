@@ -5,7 +5,7 @@ type Props = {
   label?: string;
   disabled?: boolean;
   width?: string;
-  theme?: "red";
+  theme?: "red" | "unselected-gray";
   onClick: () => void;
   children?: React.ReactNode;
 };
@@ -24,7 +24,10 @@ const Button: FC<Props> = ({
   const buttonStyling: React.CSSProperties = {};
   if (width) buttonStyling.width = width;
 
-  const buttonThemeClass = theme === "red" ? "button__red-theme" : "";
+  let buttonThemeClass = "";
+  if (theme === "red") buttonThemeClass = "button__red-theme";
+  if (theme === "unselected-gray")
+    buttonThemeClass = "button__unselected-gray-theme";
 
   return (
     <button

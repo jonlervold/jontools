@@ -41,6 +41,13 @@ const Home: FC = () => {
         </div>
       </div>
 
+      <div>
+        <Link href="/lrms-player">LR/MS Player</Link>
+        <div>
+          Isolates the left, right, mid, and side channels of audio files.
+        </div>
+      </div>
+
       <Heading
         text="Hosted Elsewhere"
         size="small"

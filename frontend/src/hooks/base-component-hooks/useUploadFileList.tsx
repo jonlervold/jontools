@@ -6,7 +6,8 @@ import { useState } from "react";
  */
 export const useUploadFileList = (
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-  setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>
+  setErrorMessage: React.Dispatch<React.SetStateAction<string | null>>,
+  maximumFileUploadCount: number
 ) => {
   // Upload file list state
   const [uploadFiles, setUploadFiles] = useState<FileList | null>(null);
@@ -30,8 +31,12 @@ export const useUploadFileList = (
 
     await enforceMinimumDuration(startTime);
 
-    files && files.length > 50
-      ? setErrorMessage("You may only upload up to 50 files at a time.")
+    files && files.length > maximumFileUploadCount
+      ? setErrorMessage(
+          `You may only select up to ${maximumFileUploadCount} file${
+            maximumFileUploadCount > 1 ? "s" : ""
+          } at a time.`
+        )
       : setUploadFiles(files);
 
     setIsLoading(false);

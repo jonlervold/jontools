@@ -1,3 +1,7 @@
 .button__red-theme {
   background-color: var(--color-button-red);
 }
+
+.button__unselected-gray-theme {
+  background-color: var(--color-button-unselected-gray);
+}

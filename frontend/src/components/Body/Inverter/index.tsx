@@ -48,6 +48,8 @@ const Inverter: FC = () => {
 
         <FileSelectButton
           id={"inverter-file-select"}
+          label="Select MIDI Files"
+          allowedFileTypes={['MIDI']}
           disabled={state.isLoading}
           onChange={state.handleUploadFilesChange}
         />

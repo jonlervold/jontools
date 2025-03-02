@@ -1,0 +1,13 @@
+.vertical-slider__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+
+.vertical-slider__input {
+  writing-mode: vertical-lr;
+  direction: rtl;
+  height: 10rem;
+  cursor: pointer;
+}
