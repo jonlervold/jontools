@@ -48,9 +48,10 @@ services:
       - cert-data:/etc/letsencrypt
       - cert-logs:/var/log/letsencrypt
       - ./frontend/.well-known:/usr/share/nginx/html/.well-known
-    # Check every 12 hours if certificates need to be renewed, gracefully restart the frontend container
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew && docker kill -s HUP frontend; sleep 12h & wait $${!}; done;'"
-    # Ensure that frontend is able to be manipulated before starting certbot
+    # Obtain certificates if missing, then check every 12 hours for renewal
+    # The frontend container handles reloading nginx to pick up renewed certificates
+    entrypoint: "/bin/sh -c 'trap exit TERM; if [ ! -f /etc/letsencrypt/live/jontools.net/fullchain.pem ]; then certbot certonly --webroot --webroot-path=/usr/share/nginx/html --email jonlervold@gmail.com --agree-tos --no-eff-email -d jontools.net -d www.jontools.net; fi; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    # Ensure that frontend is running before starting certbot
     depends_on:
       - frontend
 
