@@ -113,6 +113,7 @@ rsync -avvvz \
     "$PROJECT_DIR/frontend/nginx.conf" \
     "$PROJECT_DIR/frontend/nginx-default.conf" \
     "$PROJECT_DIR/frontend/Dockerfile-frontend-prod" \
+    "$PROJECT_DIR/frontend/entrypoint-prod.sh" \
     "$HOST_ALIAS:$VPS_DESTINATION/frontend/"
 
 # Sync frontend dist/build directory
