@@ -1,6 +1,7 @@
 import FadeContainerDynamic from "../base-components/FadeContainerDynamic";
 import Transformer from "./Transformer";
 import InvalidUrl from "./InvalidUrl";
+import LrmsPlayer from "./LrmsPlayer";
 import { useLocation } from "wouter";
 import { useEffect } from "react";
 import Inverter from "./Inverter";
@@ -35,6 +36,10 @@ const Body = () => {
     "/midi-transformer": {
       pageTitle: basePageTitle + " - MIDI Transformer",
       component: <Transformer />,
+    },
+    "/lrms-player": {
+      pageTitle: basePageTitle + " - LR/MS Player",
+      component: <LrmsPlayer />,
     },
   };
 

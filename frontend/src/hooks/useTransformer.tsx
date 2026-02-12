@@ -65,9 +65,10 @@ export const useTransformer = () => {
   /*******************************
    * UPLOAD FILE BUTTON AND LIST *
    *******************************/
+  const maximumFileUploadCount = 50;
   // Handles the upload file button and list.
   const { uploadFiles, clearUploadFiles, handleUploadFilesChange } =
-    useUploadFileList(setIsLoading, setErrorMessage);
+    useUploadFileList(setIsLoading, setErrorMessage, maximumFileUploadCount);
 
   // Items from this section needed on the template
   const uploadFileListTemplateItems = {

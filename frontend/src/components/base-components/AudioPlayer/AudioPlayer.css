@@ -21,3 +21,15 @@
 .audio-player__player:active {
   transform: var(--interact-indicator-active);
 }
+
+.audio-player__player-disable-hover {
+  opacity: 0.5;
+}
+
+.audio-player__player-disable-hover:hover {
+  transform: none;
+}
+
+.audio-player__player-disable-hover:active {
+  transform: none;
+}

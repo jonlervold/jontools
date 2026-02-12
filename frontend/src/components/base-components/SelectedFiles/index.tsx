@@ -3,12 +3,17 @@ import { FC } from "react";
 
 type Props = {
   uploadFiles: FileList | null;
+  singular?: boolean;
 };
 
 /**
  * A component that renders a list of selected files.
  */
-const SelectedFiles: FC<Props> = ({ uploadFiles }) => {
+const SelectedFiles: FC<Props> = ({ uploadFiles, singular = false }) => {
+  const nothingSelectedText = singular
+    ? "No File Selected"
+    : "No Files Selected";
+
   return (
     <div>
       {uploadFiles && (
@@ -25,7 +30,7 @@ const SelectedFiles: FC<Props> = ({ uploadFiles }) => {
       )}
 
       {!uploadFiles && (
-        <div className="selected-files__title">No Files Selected</div>
+        <div className="selected-files__title">{nothingSelectedText}</div>
       )}
     </div>
   );

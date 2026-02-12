@@ -25,6 +25,13 @@ because I thought it would be interesting to create.
     - Supports a wide range of modal transformations based on user-defined parameters.
     - Facilitates both automatic and manual transformation selection for precise control.
 
+- **LR/MS Player**
+  - **Description:** Isolate and manipulate audio signals for enhanced analysis and transcribability.
+  - **Key Capabilities:**
+    - Separates left, right, mid, and side signals from audio recordings.
+    - Facilitates starting or restarting playback at specific timestamps.
+    - Provides fine control over playback speed for detailed examination.
+
 ## Technologies Used
 
 - **General:**

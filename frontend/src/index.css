@@ -35,6 +35,7 @@
   --color-button-primary: #007bff;
   --color-button-red: red;
   --color-button-text: var(--color-pure-white);
+  --color-button-unselected-gray: #4d4d4d;
 
   /* Checkbox */
   --color-checkbox-background-checked: #2196f3;
@@ -128,6 +129,7 @@ button:disabled,
 .FileSelectButton:disabled {
   background-color: var(--color-button-disabled);
   transform: initial;
+  opacity: 0.5;
 }
 
 /* Style a links app wide */

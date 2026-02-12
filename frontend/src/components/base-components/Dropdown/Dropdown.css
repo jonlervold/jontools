@@ -34,10 +34,15 @@
   border: 0.12rem solid var(--color-dropdown-border);
 }
 
-.dropdown__dropdown:hover {
+/* When the dropdown is hovered or active but not disabled, apply the interactability indication */
+.dropdown__dropdown select:hover:not(:disabled) {
   transform: var(--interact-indicator-hover);
 }
 
-.dropdown__dropdown:active {
+.dropdown__dropdown select:active:not(:disabled) {
   transform: var(--interact-indicator-active);
+}
+
+.dropdown__dropdown select:disabled {
+  opacity: 0.5;
 }
