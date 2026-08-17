@@ -48,6 +48,13 @@ const Home: FC = () => {
         </div>
       </div>
 
+      <div>
+        <Link href="/iching">I Ching</Link>
+        <div>
+          Casts an I Ching reading from a question using the three-coin method.
+        </div>
+      </div>
+
       <Heading
         text="Hosted Elsewhere"
         size="small"

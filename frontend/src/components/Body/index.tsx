@@ -5,6 +5,7 @@ import LrmsPlayer from "./LrmsPlayer";
 import { useLocation } from "wouter";
 import { useEffect } from "react";
 import Inverter from "./Inverter";
+import Iching from "./Iching";
 import Home from "./Home";
 import "./Body.css";
 
@@ -40,6 +41,10 @@ const Body = () => {
     "/lrms-player": {
       pageTitle: basePageTitle + " - LR/MS Player",
       component: <LrmsPlayer />,
+    },
+    "/iching": {
+      pageTitle: basePageTitle + " - I Ching",
+      component: <Iching />,
     },
   };
 

@@ -73,6 +73,15 @@
   /* Transformation Selector */
   --color-transformation-selector-border: var(--color-shared-grid-border-gray);
 
+  /* TextArea */
+  --color-textarea-background: rgb(43, 43, 43);
+  --color-textarea-border: var(--color-pure-white);
+  --color-textarea-text: var(--color-app-text);
+
+  /* I Ching */
+  --color-iching-line-stable: var(--color-app-text);
+  --color-iching-line-changing: var(--color-button-red);
+
   /********************
    * APP WIDE STYLING *
    ********************/

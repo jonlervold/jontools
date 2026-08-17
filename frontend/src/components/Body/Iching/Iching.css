@@ -1,0 +1,26 @@
+.iching__hexagram-name {
+  font-weight: 600;
+}
+
+.iching__label {
+  font-weight: 600;
+}
+
+.iching__changing-note {
+  color: var(--color-iching-line-changing);
+}
+
+.iching__line-heading {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.iching__oracle,
+.iching__commentary {
+  white-space: pre-wrap;
+}
+
+.iching__commentary {
+  margin-top: 0.75rem;
+  opacity: 0.92;
+}

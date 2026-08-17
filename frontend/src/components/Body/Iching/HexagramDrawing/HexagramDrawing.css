@@ -1,0 +1,17 @@
+.hexagram-drawing__container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hexagram-drawing__svg {
+  flex-shrink: 0;
+  text-shadow: none;
+}
+
+.hexagram-drawing__labels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
